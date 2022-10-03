@@ -1,0 +1,2120 @@
+		        <script language="javascript" type="text/javascript">
+//
+//function addclass2()
+//{
+//	alert("enter");
+//document.getElementById("responsives").className="modal hide fade in modal-overflow";
+////document.getElementById("responsive").aria-hidden="false";
+//document.getElementById("responsives").style.display="block";
+//document.getElementById("responsives").style.width="910px";
+//document.getElementById("scrolls").style.display="block";
+//document.getElementById("scrolls1").style.display="block";
+//alert("exit");
+//return false;
+//}
+function userchksub(value)
+{
+	var url;
+	url="code_mode_unamechk_data.html"+value+"&r="+Math.random();
+	//alert(url);
+	var obj;
+	try
+	{
+		obj=new XMLHttpRequest();
+	}
+	catch(e)
+	{
+		try
+		{
+		obj=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		catch(e)
+		{
+			alert("Your Browser does not support AJAX");
+		}
+	}
+	obj.open("GET",url,true);
+	obj.send(null);
+	obj.onreadystatechange=function()
+	{
+		if(obj.readyState==4)
+		{
+			var res= obj.responseText;
+			//alert(res);
+			document.getElementById("unamechksub").innerHTML="";
+			document.getElementById("unamechksub").innerHTML=res;
+		}
+	}
+}
+function useremailchksub(value)
+{
+	var url;
+	url="code.php?mode=uemailchk&data="+value+"&r="+Math.random();
+	var obj;
+	try
+	{
+		obj=new XMLHttpRequest();
+	}
+	catch(e)
+	{
+		try
+		{
+		obj=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		catch(e)
+		{
+			alert("Your Browser does not support AJAX");
+		}
+	}
+	obj.open("GET",url,true);
+	obj.send(null);
+	obj.onreadystatechange=function()
+	{
+		if(obj.readyState==4)
+		{
+			var res= obj.responseText;
+			document.getElementById("uemailchksub").innerHTML=res;
+		}
+	}
+}
+function chkpasssub(value)
+{
+	var url;
+	url="code.php?mode=upasschk&data="+value+"&r="+Math.random();
+	var obj;
+	try
+	{
+		obj=new XMLHttpRequest();
+	}
+	catch(e)
+	{
+		try
+		{
+		obj=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		catch(e)
+		{
+			alert("Your Browser does not support AJAX");
+		}
+	}
+	obj.open("GET",url,true);
+	obj.send(null);
+	obj.onreadystatechange=function()
+	{
+		if(obj.readyState==4)
+		{
+			var res= obj.responseText;
+			document.getElementById("upasschksub").innerHTML=res;
+		}
+	}
+}
+function valid()
+{
+var email=document.getElementById("uemail").value;
+    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+	if(document.getElementById("unamechk").innerHTML=="username already exists, kindly change" ||document.getElementById("unamechk").innerHTML=="Kindly Choose a username")
+	{
+		return false;
+	}
+	else if(document.getElementById("uemailchk").innerHTML=="Kindly give your email-id" ||document.getElementById("uemailchk").innerHTML=="email already exists, kindly change")
+	{
+		return false;
+	}
+	else if(document.getElementById("upasschk").innerHTML=="Choose a password for you" ||document.getElementById("upasschk").innerHTML=="Password is weak. It should be of length 8")
+	{
+		return false;
+	}
+	   else if(!re.test(email))
+	{
+		document.getElementById("uemailchk").innerHTML="Kindly enter a valid email address";
+		return false;
+	}
+	else
+	{
+		document.signup_form.action="send_mail_form_mode_signup.html";
+		document.signup_form.submit();
+	}
+}
+function ratelater(itemid,user)
+{
+	var url;
+	url="code.php?mode=ratelater&item="+itemid+"&user="+user+"&r="+Math.random();
+	var obj;
+	try
+	{
+		obj=new XMLHttpRequest();
+	}
+	catch(e)
+	{
+		try
+		{
+		obj=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		catch(e)
+		{
+			alert("Your Browser does not support AJAX");
+		}
+	}
+	obj.open("GET",url,true);
+	obj.send(null);
+	obj.onreadystatechange=function()
+	{
+		if(obj.readyState==4)
+		{
+			var res= obj.responseText;
+			document.getElementById("later_"+itemid).innerHTML=res;
+		}
+	}
+}
+ function updmod(val,id)
+  {
+	  var chk=(val==true)?1:0;
+	  //alert(id);
+		var url;
+				url="code.php?mode=moditem&itemid="+id+"&val="+chk+"&r="+Math.random();
+				var obj;
+				try
+				{
+					obj=new XMLHttpRequest();
+				}
+				catch(e)
+				{
+					try
+					{
+					obj=new ActiveXObject("Microsoft.XMLHTTP");
+					}
+					catch(e)
+					{
+						alert("Your Browser does not support AJAX");
+					}
+				}
+				obj.open("GET",url,true);
+				obj.send(null);
+				obj.onreadystatechange=function()
+				{
+					if(obj.readyState==4)
+					{
+						var res= obj.responseText;
+						//alert(res);
+					}
+				}
+  }
+   //function chkrestrict(val,itemid,e)
+//  {e.preventDefault();
+//	  var uid=val;
+//	 // alert(uid);
+//		var url;
+//		
+//				url="code.php?mode=chkrest&uid="+uid+"&r="+Math.random();
+//				var obj;
+//				try
+//				{
+//					obj=new XMLHttpRequest();
+//				}
+//				catch(e)
+//				{
+//					try
+//					{
+//					obj=new ActiveXObject("Microsoft.XMLHTTP");
+//					}
+//					catch(e)
+//					{
+//						alert("Your Browser does not support AJAX");
+//					}
+//				}
+//				obj.open("POST",url,true);
+//				obj.send(null);
+//				obj.onreadystatechange=function()
+//				{
+//					if(obj.readyState==4)
+//					{
+//						var res= obj.responseText;
+//						//alert(res);
+//						if(res==1)
+//						{
+//								document.getElementById("modal-1").className="md-modal md-effect-1 md-show";
+//								e.stop();
+//								//e.stopPropagation();
+//								return false;
+//						}
+//						else
+//						{
+//							window.location.href="item_id.html"+itemid;
+//						}
+//						return false;
+//					}
+//				}
+//  }
+function itempage(id)
+{
+	//alert(id);
+	document.location.href='item_id.html'+id;
+	document.submit();
+}
+function delconfirm(id,cat)
+{
+	var con=confirm("Do you really want to delete the item? There is no UNDO.");
+	if(con==true)
+	{
+		window.location.href="code_mode_delitem_id.html"+id+"&catid="+cat;
+	}
+	else
+	{
+		return false;
+	}
+}
+</script>
+</head>
+<body>
+</body>
+</html>
+<div class="top_block" >
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Creative Self-Development</title>
+<link rel="stylesheet" type="text/css" href="css/default.css" />
+<link rel="stylesheet" type="text/css" href="css/component.css" />
+<link href="demo/stylesheets/labs.css" media="screen" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="lib/jquery.raty.css">
+<link href="css/bootstrap.css" rel="stylesheet" />
+<link href="css/bootstrap-modal.css" rel="stylesheet" />
+<link href="css/pop-up.css" rel="stylesheet" />
+<link href="CSS.css" rel="stylesheet" type="text/css">
+<link href="css/video-js.css" rel="stylesheet">
+<script src="js/jquery.min.js"></script>
+<script src="js/video.js"></script>
+<!---------------Login Pop-Up script---------------------------------------->
+<script type="text/javascript">
+$(document).ready(function(){
+ $("#login_a").click(function(){
+  $("#shadow").fadeIn("normal");
+  $("#login_form_pop").fadeIn("normal");
+  $("#user_name_pop").focus();
+ });
+ $("#cancel_hide").click(function(){
+  $("#login_form_pop").fadeOut("normal");
+  $("#shadow").fadeOut();
+ });
+ $("#login_pop").click(function(){
+  username=$("#user_name_pop").val();
+  password=$("#password_pop").val();
+  if(username=="")
+  {
+	  $("#add_err").html("Enter Username");
+	  return false;
+  }
+  else if(password=="")
+  {
+	  	$("#add_err").html("Enter password");
+		return false;
+  }
+  else
+  {
+	var chk=document.getElementById("logge").checked;
+	var logi=(chk==true)?1:0;
+  $.ajax({
+   type: "POST",
+   url: "code_mode_signinpop.html",
+   data: "user_name="+username+"&user_pass="+password+"&logi="+logi,
+   success: function(html){
+	 //alert(html);
+    if(html=='true')
+    {
+     $("#login_form_pop").fadeOut("normal");
+     $("#shadow").fadeOut();
+	 return true;
+    // $("#profile").html("<a href='logout.html' id='logout'>Logout</a>");
+    }
+    else if(html=='3')
+    {//alert("entered");
+     $("#add_err").html("Wrong username");
+	 return false;
+    }
+     else if(html=='1')
+    {
+     $("#add_err").html("Wrong password");
+	 return false;
+    }
+	else if(html=='2')
+	{
+		$("#add_err").html("Please verify your email address");
+	 return false;
+	}
+   },
+   beforeSend:function()
+   {
+    $("#add_err").html("Loading...")
+   }
+  });
+  }
+  return false;
+ });
+});
+</script>
+<!-------------------End of script for login pop-up----------------->
+<script>
+$(document).ready(function(){
+ $("#pop_a").click(function(){
+	   $("#shadow_pop").fadeIn("normal");
+  $("#bell_pop").fadeIn("normal");
+ $("#bell_hide").click(function(){
+  $("#bell_pop").fadeOut("normal");
+  $("#shadow_pop").fadeOut();
+ });
+ });
+});
+</script>
+<script>
+$(document).ready(function(){
+ $(".prof_pop").click(function(){
+	   $("#shadow_prof_pop").fadeIn("normal");
+  $("#profile_pop").fadeIn("normal");
+ $("#prof_hide").click(function(){
+  $("#profile_pop").fadeOut("normal");
+  $("#shadow_prof_pop").fadeOut();
+ });
+ });
+});
+$(document).ready(function(){
+ $(".prof_pop").focus(function(){
+	   $("#shadow_prof_pop").fadeIn("normal");
+  $("#profile_pop").fadeIn("normal");
+ $("#prof_hide").click(function(){
+  $("#profile_pop").fadeOut("normal");
+  $("#shadow_prof_pop").fadeOut();
+ });
+ });
+});
+$(document).ready(function(){
+ $(".prof_pop_new").click( function(){
+	   $("#shadow_prof_pop_new").fadeIn("normal");
+  $("#profile_pop").fadeIn("normal");
+ $("#prof_hide").click(function(){
+  $("#profile_pop").fadeOut("normal");
+  $("#shadow_prof_pop_new").fadeOut();
+ });
+ });
+});
+$(document).ready(function(){
+ $(".prof_pop_new").focus(function(){
+	   $("#shadow_prof_pop_new").fadeIn("normal");
+  $("#profile_pop_new").fadeIn("normal");
+ $("#prof_hide_new").click(function(){
+  $("#profile_pop_new").fadeOut("normal");
+  $("#shadow_prof_pop_new").fadeOut();
+ });
+ });
+});
+$(document).ready(function(){
+ $("#user_reg").click(function(){
+	   $("#shadow_user_reg").fadeIn("normal");
+  $("#user_reg_pop").fadeIn("normal");
+ $("#user_reg_hide").click(function(){
+  $("#user_reg_pop").fadeOut("normal");
+  $("#shadow_user_reg").fadeOut();
+ });
+ $("#user_reg_hide1").click(function(){
+  $("#user_reg_pop").fadeOut("normal");
+  $("#shadow_user_reg").fadeOut();
+ });
+ });
+//  $("#signup_pop").click(function(){
+//
+//  username=$("#user_name_reg").val();
+//  password=$("#password_reg").val();
+//  email=$("#email_reg").val();
+//  if(username=="")
+//  {
+//	  $("#reg_err").html("Enter Username");
+//	  return false;
+//  }
+//  else if(password=="")
+//  {
+//	  	$("#reg_err").html("Enter password");
+//		return false;
+//  }
+//   else if(email=="")
+//  {
+//	  	$("#reg_err").html("Enter Email");
+//		return false;
+//  }
+//  else
+//  {
+//	//var chk=document.getElementById("logged").checked;
+//	//var log=(chk==true)?1:0;
+//  $.ajax({
+//   type: "POST",
+//   url: "send_mail_form.php?mode=signuphome",
+//   data: "user_name_reg="+username+"&password_reg="+password+"&email_reg="+email,
+//   success: function(html){
+//    if(html=='true')
+//    {
+//     $("#user_reg_pop").fadeOut("normal");
+//     $("#shadow_user_reg").fadeOut();
+//	 
+//	 return true;
+//    // $("#profile").html("<a href='logout.html' id='logout'>Logout</a>");
+//
+//    }
+//    else
+//    {
+//     $("#reg_err").html("Could not signup, try again later");
+//    }
+//   },
+//   beforeSend:function()
+//   {
+//    $("#reg_err").html("Loading...")
+//   }
+//  });
+//  }
+//  return false;
+// });
+});
+</script>
+<script>
+		function loadpage(itemid,userpt,reqpt)
+		{
+		   // alert(itemid);
+		  var userpt=userpt;
+		  var reqpt=reqpt;
+//		  var position =  $(".home_below_item").scrollTop;
+		   	var url;
+		   	if(userpt>reqpt || userpt==reqpt)
+		   	{
+	   	    url="sub-category.php?cat-id="+itemid;
+		   url1="subcat_ajaxload.php?cat-id="+itemid;
+		   	var obj;
+				try
+				{
+					obj=new XMLHttpRequest();
+				}
+				catch(e)
+				{
+					try
+					{
+					obj=new ActiveXObject("Microsoft.XMLHTTP");
+					}
+					catch(e)
+					{
+						alert("Your Browser does not support AJAX");
+					}
+				}
+				obj.open("GET",url1,true);
+				obj.send(null);
+				obj.onreadystatechange=function()
+				{
+					if(obj.readyState==4)
+					{
+					    var res= obj.responseText;
+		                  $( '.home_below_item' ).html(res);
+		                  $('html, body').stop();
+                     }
+                 }
+		   	}
+		   	else
+		   	{
+		   	    url="index.php?restrict=true";
+		   	    document.getElementById("modal-2").style.display="block";
+		   	    document.getElementById("modal-21").style.display="block";
+		   	}
+		      var new_url="/"+url;
+ window.history.pushState("data","Title",new_url);
+ document.title=url;
+		}
+		function addclasstoapp()
+{
+document.getElementById("responsived").className="modal hide fade in modal-overflow";
+//document.getElementById("responsive").aria-hidden="false";
+document.getElementById("responsived").style.display="block";
+document.getElementById("responsived").style.width="910px";
+document.getElementById("scrolled").style.display="block";
+document.getElementById("scrolled2").style.display="block";
+}
+function userchk(value)
+{
+	if(value.length<5)
+	{
+		document.getElementById("unamechkerr").innerHTML="Username must be of length 5 atleast";
+	}
+	else
+	{
+	var url;
+	url="code_mode_unamechk_data.html"+value+"&r="+Math.random();
+	//alert(url);
+	var obj;
+	try
+	{
+		obj=new XMLHttpRequest();
+	}
+	catch(e)
+	{
+		try
+		{
+		obj=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		catch(e)
+		{
+			alert("Your Browser does not support AJAX");
+		}
+	}
+	obj.open("GET",url,true);
+	obj.send(null);
+	obj.onreadystatechange=function()
+	{
+		if(obj.readyState==4)
+		{
+			var res= obj.responseText;
+			//document.getElementById("unamechk").innerHTML="";
+			document.getElementById("unamechkerr").innerHTML=res;
+			//alert(res);
+			//document.signup_form1.unamechk.innerHTML=res;
+		}
+	}
+	}
+}
+function userchk_up(value)
+{
+	if(value.length<5)
+	{
+		document.getElementById("unamechkerr_up").innerHTML="Username must be of length 5 atleast";
+	}
+	else
+	{
+	var url;
+	url="code_mode_unamechk_data.html"+value+"&r="+Math.random();
+	//alert(url);
+	var obj;
+	try
+	{
+		obj=new XMLHttpRequest();
+	}
+	catch(e)
+	{
+		try
+		{
+		obj=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		catch(e)
+		{
+			alert("Your Browser does not support AJAX");
+		}
+	}
+	obj.open("GET",url,true);
+	obj.send(null);
+	obj.onreadystatechange=function()
+	{
+		if(obj.readyState==4)
+		{
+			var res= obj.responseText;
+			//document.getElementById("unamechk").innerHTML="";
+			document.getElementById("unamechkerr_up").innerHTML=res;
+			//alert(res);
+			//document.signup_form1.unamechk.innerHTML=res;
+		}
+	}
+	}
+}
+//function useremailchk(value)
+//{
+//	var url;
+//	url="code.php?mode=uemailchk&data="+value+"&r="+Math.random();
+//	var obj;
+//	try
+//	{
+//		obj=new XMLHttpRequest();
+//	}
+//	catch(e)
+//	{
+//		try
+//		{
+//		obj=new ActiveXObject("Microsoft.XMLHTTP");
+//		}
+//		catch(e)
+//		{
+//			alert("Your Browser does not support AJAX");
+//		}
+//	}
+//	obj.open("GET",url,true);
+//	obj.send(null);
+//	obj.onreadystatechange=function()
+//	{
+//		if(obj.readyState==4)
+//		{
+//			var res= obj.responseText;
+//			document.getElementById("uemailchkerr").innerHTML=res;
+//			//return false;
+//		}
+//	}
+//}
+function chkpass(value)
+{
+	var url;
+	url="code.php?mode=upasschk&data="+value+"&r="+Math.random();
+	var obj;
+	try
+	{
+		obj=new XMLHttpRequest();
+	}
+	catch(e)
+	{
+		try
+		{
+		obj=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		catch(e)
+		{
+			alert("Your Browser does not support AJAX");
+		}
+	}
+	obj.open("GET",url,true);
+	obj.send(null);
+	obj.onreadystatechange=function()
+	{
+		if(obj.readyState==4)
+		{
+			var res= obj.responseText;
+			document.getElementById("upasschkerr").innerHTML=res;
+		}
+	}
+}
+function chkpass_up(value)
+{
+	var url;
+	url="code.php?mode=upasschk&data="+value+"&r="+Math.random();
+	var obj;
+	try
+	{
+		obj=new XMLHttpRequest();
+	}
+	catch(e)
+	{
+		try
+		{
+		obj=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		catch(e)
+		{
+			alert("Your Browser does not support AJAX");
+		}
+	}
+	obj.open("GET",url,true);
+	obj.send(null);
+	obj.onreadystatechange=function()
+	{
+		if(obj.readyState==4)
+		{
+			var res= obj.responseText;
+			document.getElementById("upasschkerr_up").innerHTML=res;
+		}
+	}
+}
+function userchkhome(value)
+{
+	if(value.length<5)
+	{
+		document.getElementById("unamechk").innerHTML="Username must be of length 5 atleast";
+	}
+	else
+	{
+	var url;
+	url="code_mode_unamechk_data.html"+value+"&r="+Math.random();
+	//alert(url);
+	var obj;
+	try
+	{
+		obj=new XMLHttpRequest();
+	}
+	catch(e)
+	{
+		try
+		{
+		obj=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		catch(e)
+		{
+			alert("Your Browser does not support AJAX");
+		}
+	}
+	obj.open("GET",url,true);
+	obj.send(null);
+	obj.onreadystatechange=function()
+	{
+		if(obj.readyState==4)
+		{
+			var res= obj.responseText;
+			//document.getElementById("unamechk").innerHTML="";
+			document.getElementById("unamechk").innerHTML=res;
+			//alert(res);
+			//document.signup_form1.unamechk.innerHTML=res;
+		}
+	}
+	}
+}
+//function useremailchkhome(value)
+//{
+//	var url;
+//	url="code.php?mode=uemailchk&data="+value+"&r="+Math.random();
+//	var obj;
+//	try
+//	{
+//		obj=new XMLHttpRequest();
+//	}
+//	catch(e)
+//	{
+//		try
+//		{
+//		obj=new ActiveXObject("Microsoft.XMLHTTP");
+//		}
+//		catch(e)
+//		{
+//			alert("Your Browser does not support AJAX");
+//		}
+//	}
+//	obj.open("GET",url,true);
+//	obj.send(null);
+//	obj.onreadystatechange=function()
+//	{
+//		if(obj.readyState==4)
+//		{
+//			var res= obj.responseText;
+//			document.getElementById("uemailchk").innerHTML=res;
+//			return false;
+//		}
+//	}
+//}
+function chkpasshome(value)
+{
+	var url;
+	url="code.php?mode=upasschk&data="+value+"&r="+Math.random();
+	var obj;
+	try
+	{
+		obj=new XMLHttpRequest();
+	}
+	catch(e)
+	{
+		try
+		{
+		obj=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		catch(e)
+		{
+			alert("Your Browser does not support AJAX");
+		}
+	}
+	obj.open("GET",url,true);
+	obj.send(null);
+	obj.onreadystatechange=function()
+	{
+		if(obj.readyState==4)
+		{
+			var res= obj.responseText;
+			document.getElementById("upasschk").innerHTML=res;
+		}
+	}
+}
+function validsignup()
+{
+var email=document.getElementById("uemail").value;
+var name=document.getElementById("uname").value;
+var pass=document.getElementById("upass").value;
+    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+	if(name=="")
+	{
+		document.getElementById("unamechkerr").innerHTML="Kindly Choose a username";
+		return false;
+	}
+		else if(pass=="")
+	{
+		document.getElementById("upasschkerr").innerHTML="Choose a password for you";
+		return false;
+	}
+	else if(email=="")
+	{
+		document.getElementById("uemailchkerr").innerHTML="Kindly give your email-id";
+		return false;
+	}
+	else if(document.getElementById("unamechkerr").innerHTML=="Username already exists, Kindly change" ||document.getElementById("unamechkerr").innerHTML=="Kindly Choose a username" || document.getElementById("unamechkerr").innerHTML=="Username must be of length 5 atleast")
+	{
+		return false;
+	}
+	else if(document.getElementById("uemailchkerr").innerHTML=="Kindly give your email-id") //||document.getElementById("uemailchkerr").innerHTML=="email already exists, kindly change")
+	{
+		return false;
+	}
+	else if(document.getElementById("upasschkerr").innerHTML=="Choose a password for you" ||document.getElementById("upasschkerr").innerHTML=="Password is weak. It should be of length 8")
+	{
+		return false;
+	}
+	   else if(!re.test(email))
+	{
+		document.getElementById("uemailchkerr").innerHTML="Kindly enter a valid email address";
+		return false;
+	}
+	//else if(name.length<5)
+//	{
+//		document.getElementById("unamechkerr").innerHTML="Length of Username must be atleast 5";
+//		return false;
+//	}
+	else
+	{
+		document.signup_form1.action="send_mail_form_mode_signup.html";
+		document.signup_form1.submit();
+	}
+}
+function validsignup_up()
+{
+var email=document.getElementById("uemail_up").value;
+var name=document.getElementById("uname_up").value;
+var pass=document.getElementById("upass_up").value;
+    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+	if(name=="")
+	{
+		document.getElementById("unamechkerr_up").innerHTML="Kindly Choose a username";
+		return false;
+	}
+		else if(pass=="")
+	{
+		document.getElementById("upasschkerr_up").innerHTML="Choose a password for you";
+		return false;
+	}
+	else if(email=="")
+	{
+		document.getElementById("uemailchkerr_up").innerHTML="Kindly give your email-id";
+		return false;
+	}
+	else if(document.getElementById("unamechkerr_up").innerHTML=="Username already exists, Kindly change" ||document.getElementById("unamechkerr_up").innerHTML=="Kindly Choose a username" || document.getElementById("unamechkerr_up").innerHTML=="Username must be of length 5 atleast")
+	{
+		return false;
+	}
+	else if(document.getElementById("uemailchkerr_up").innerHTML=="Kindly give your email-id") //||document.getElementById("uemailchkerr").innerHTML=="email already exists, kindly change")
+	{
+		return false;
+	}
+	else if(document.getElementById("upasschkerr_up").innerHTML=="Choose a password for you" ||document.getElementById("upasschkerr_up").innerHTML=="Password is weak. It should be of length 8")
+	{
+		return false;
+	}
+	   else if(!re.test(email))
+	{
+		document.getElementById("uemailchkerr_up").innerHTML="Kindly enter a valid email address";
+		return false;
+	}
+	//else if(name.length<5)
+//	{
+//		document.getElementById("unamechkerr").innerHTML="Length of Username must be atleast 5";
+//		return false;
+//	}
+	else
+	{
+		document.signup_form1_up.action="send_mail_form_mode_signup_up.html";
+		document.signup_form1_up.submit();
+	}
+}
+function validform()
+{
+var email=document.getElementById("email_reg").value;
+var name=document.getElementById("user_name_reg").value;
+var pass=document.getElementById("password_reg").value;
+    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+		if(name=="")
+	{
+		document.getElementById("unamechk").innerHTML="Kindly Choose a username";
+		return false;
+	}
+		else if(pass=="")
+	{
+		document.getElementById("upasschk").innerHTML="Choose a password for you";
+		return false;
+	}
+	else if(email=="")
+	{
+		document.getElementById("uemailchk").innerHTML="Kindly give your email-id";
+		return false;
+	}
+	else if(document.getElementById("unamechk").innerHTML=="Username already exists, Kindly change" ||document.getElementById("unamechk").innerHTML=="Kindly Choose a username" || document.getElementById("unamechk").innerHTML=="Username must be of length 5 atleast")
+	{
+		return false;
+	}
+	else if(document.getElementById("uemailchk").innerHTML=="Kindly give your email-id") //||document.getElementById("uemailchk").innerHTML=="email already exists, kindly change")
+	{
+		return false;
+	}
+	else if(document.getElementById("upasschk").innerHTML=="Choose a password for you" ||document.getElementById("upasschk").innerHTML=="Password is weak. It should be of length 8")
+	{
+		return false;
+	}
+	   else if(!re.test(email))
+	{
+		document.getElementById("uemailchk").innerHTML="Kindly enter a valid email address";
+		return false;
+	}
+	else
+	{
+		document.signup_popform.action="send_mail_form_mode_signuphome.html";
+		document.signup_popform.submit();
+	}
+}
+function changesession(val)
+{
+	var uid=val;
+	var url;
+	url="code.php?mode=changesession&userid="+uid+"&r="+Math.random();
+	//alert(url);
+	var obj;
+	try
+	{
+		obj=new XMLHttpRequest();
+	}
+	catch(e)
+	{
+		try
+		{
+		obj=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		catch(e)
+		{
+			alert("Your Browser does not support AJAX");
+		}
+	}
+	obj.open("GET",url,true);
+	obj.send(null);
+	obj.onreadystatechange=function()
+	{
+		if(obj.readyState==4)
+		{
+			var res= obj.responseText;
+		}
+	}
+}
+function changesessionmsg(val)
+{
+	var uid=val;
+	var url;
+	url="code.php?mode=changesessionmsg&userid="+uid+"&r="+Math.random();
+	//alert(url);
+	var obj;
+	try
+	{
+		obj=new XMLHttpRequest();
+	}
+	catch(e)
+	{
+		try
+		{
+		obj=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		catch(e)
+		{
+			alert("Your Browser does not support AJAX");
+		}
+	}
+	obj.open("GET",url,true);
+	obj.send(null);
+	obj.onreadystatechange=function()
+	{
+		if(obj.readyState==4)
+		{
+			var res= obj.responseText;
+		}
+	}
+}
+<!------------------------------Direct URL access------------------------------------------>
+ function chkaccess(catid)
+ {
+	 var url;
+	url="code.php?mode=chkaccess&cat-id="+catid+"&r="+Math.random();
+	//alert(url);
+	var obj;
+	try
+	{
+		obj=new XMLHttpRequest();
+	}
+	catch(e)
+	{
+		try
+		{
+		obj=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		catch(e)
+		{
+			alert("Your Browser does not support AJAX");
+		}
+	}
+	obj.open("GET",url,true);
+	obj.send(null);
+	obj.onreadystatechange=function()
+	{
+		if(obj.readyState==4)
+		{
+			var res= obj.responseText;
+//alert(res);
+			if(res=="f")
+			{
+			}
+			else
+			{
+			}
+			//document.getElementById("unamechksub").innerHTML="";
+			//document.getElementById("unamechksub").innerHTML=res;
+		}
+	}
+ }
+</script>
+<script>
+$(document).ready(function(){
+    $("#notification_show").click(function(event){
+		event.stopPropagation();
+        $("#notification_box").toggle();
+    });
+$("#notification_show").click(function(){
+    $("#notifi").removeClass("notofication");
+	document.getElementById("notifidata").innerHTML="";
+});
+});
+$(document).ready(function(){
+	$(".dropbtn").click(function(){
+    $("#notifimsg").removeClass("notifimsgcls");
+	document.getElementById("notifimsg").innerHTML="";
+});
+});
+$(document).ready(function(){
+	$("#msg").click(function(){
+    $("#notifimsgs").removeClass("notifimsgclass");
+	document.getElementById("notifimsgs").innerHTML="";
+});
+});
+$(document).click( function(){
+    $('#notification_box').hide();
+});
+function myfunction(val) {
+	changesessionmsg(val);
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(e) {
+  if (!e.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    for (var d = 0; d < dropdowns.length; d++) {
+      var openDropdown = dropdowns[d];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+function validlogin()
+{
+		if(document.getElementById("user_name").value=="" ||document.getElementById("user_pass").value=="")
+		{
+			document.getElementById("loginerr").innerHTML="Enter username or password";
+			return false;
+		}
+		else
+		{
+		var chk=document.getElementById("logged").checked;
+		//alert(chk);
+		var logi=(chk==true)?1:0;
+		var user_name=document.getElementById("user_name").value;
+		var user_pass=document.getElementById("user_pass").value;
+		$.ajax({
+   type: "POST",
+   url: "code.php?mode=signin",
+   data: "user_name="+user_name+"&user_pass="+user_pass+"&logi="+logi,
+   success: function(html){
+    if(html=='true')
+    {
+ //    $("#login_form_pop").fadeOut("normal");
+//     $("#shadow").fadeOut();
+	 return true;
+    // $("#profile").html("<a href='logout.html' id='logout'>Logout</a>");
+    }
+    else if(html=='false')
+    {
+     $("#loginerr").html("Wrong username or password");
+	 return false;
+    }
+	else
+	{
+		$("#loginerr").html("Please verify your email address");
+	 return false;
+	}
+   }
+   //beforeSend:function()
+//   {
+//    $("#loginerr").html("Loading...")
+//	return false;
+//   }
+  });
+  return false;
+		}
+}
+function validlogin_up()
+{
+		if(document.getElementById("user_name_up").value=="" ||document.getElementById("user_pass_up").value=="")
+		{
+			document.getElementById("loginerr_up").innerHTML="Enter username or password";
+			return false;
+		}
+		else
+		{
+		var chk=document.getElementById("logged_up").checked;
+		//alert(chk);
+		var logi=(chk==true)?1:0;
+		var user_name=document.getElementById("user_name_up").value;
+		var user_pass=document.getElementById("user_pass_up").value;
+		$.ajax({
+   type: "POST",
+   url: "code.php?mode=signin",
+   data: "user_name="+user_name+"&user_pass="+user_pass+"&logi="+logi,
+   success: function(html){
+    if(html=='true')
+    {
+ //    $("#login_form_pop").fadeOut("normal");
+//     $("#shadow").fadeOut();
+	 return true;
+    // $("#profile").html("<a href='logout.html' id='logout'>Logout</a>");
+    }
+    else if(html=='false')
+    {
+     $("#loginerr_up").html("Wrong username or password");
+	 return false;
+    }
+	else
+	{
+		$("#loginerr_up").html("Please verify your email address");
+	 return false;
+	}
+   }
+   //beforeSend:function()
+//   {
+//    $("#loginerr").html("Loading...")
+//	return false;
+//   }
+  });
+  return false;
+		}
+}
+</script>
+<script src=.3.2/assets/js/bootstrap.js"></script>
+<script src="js/bootstrap-modalmanager.js"></script>
+<script src="js/bootstrap-modal.js"></script>
+<script>
+$(document).ready(function(){
+    $("#login").click(function(){
+        $("#signup_div").hide();
+		 $("#login_div").show();
+    });
+    $("#signup").click(function(){
+        $("#login_div").hide();
+		$("#signup_div").show();
+    });
+      $("#login_up").click(function(){
+        $("#signup_up_div").hide();
+		 $("#login_up_div").show();
+    });
+    $("#signup_up").click(function(){
+        $("#login_up_div").hide();
+		$("#signup_up_div").show();
+    });
+});
+</script>
+</head>
+<body class = "sub-category ">
+<header> 
+	<h1>Creative Self-Development</h1> 
+	<div class= “logo”><img src = "images/red line.svg" alt="red line SVG"/>
+</div>
+</header>
+<div class="menu_button" id="menu_button">
+!  <button class="toggle_button" id="menu_button" type="button" data-toggle="collapse" data-target=".collapse" aria-expanded="false" aria-controls="header header2 header3"> <img src="images/up.png" title="Close" alt="Close" class="close_button"> <img src="images/down.png" title="Open" alt="Open" class="open_button"> </button>
+</div>
+<nav id="header" class="in collapse">
+  <div class="nav-main">
+    <ul>
+      <li><a href="index_php.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+          <li><a href="#" class="prof_pop">Profile</a></li>
+    <!--<div class="notification_menu"> -->
+    <li><a href="#" id="pop_a"><img src="images/bell.png"></a></li>
+    <!--</div>-->
+    <li> <a href="#" id="login_a">Log In</a></li>
+    </ul>
+    <!-------------------------------Login Pop-UP code------------------------------------------------->
+        <div id="login_form_pop">
+      <div class="err" id="add_err"></div>
+      <form>
+        <label style="color:#0088cc; font-size:16px;">User Name:</label>
+        <input type="text" id="user_name_pop" name="user_name_pop"  />
+        <!--value=""-->
+        <label style="color:#0088cc; font-size:16px;">Password:</label>
+        <input type="password" id="password_pop" name="password_pop" />
+        <br>
+        <!--value=""-->
+        <input type="checkbox" name="logge" id="logge" checked>
+        Keep me logged in <br/>
+        <a href="#" id="user_reg">New User? Register Here.</a>
+        <label></label>
+        <br/>
+        <input type="submit" id="login_pop" value="Log In" />
+        <input type="button" id="cancel_hide" value="Cancel" />
+      </form>
+    </div>
+    <div id="shadow" class="popup"></div>
+    <!------------------End----------------------------------> 
+    <!-------------------------------Bell Pop-UP code------------------------------------------------->
+    <div id="bell_pop"> -------------Alert-------------<br>
+      You need to Log In/Signup to access this page.<br>
+      <input type="button" id="bell_hide" value="Ok" />
+    </div>
+    <div id="shadow_pop" class="popup"></div>
+    <!------------------End----------------------------------> 
+    <!-------------------------------Profile Pop-UP code-------------------------------------->
+    <div id="profile_pop"> -------------Alert-------------<br>
+      You need to Log In/Signup to access this page.<br>
+      <input type="button" id="prof_hide" value="Ok" />
+    </div>
+    <div id="shadow_prof_pop" class="popup"></div>
+    <style>
+        #profile_pop_new {
+        	position: fixed;
+        	width: 275px;
+        	height: 200px;
+        	top: 150px;
+        	left: 40%;
+        	background-color: #3E3C3C;
+        	padding: 10px;
+        	border: 10px solid #474748;
+        	display: none;
+        	z-index: 101;
+        	color: #F1F1F1;
+        	font-size: 20px;
+        	align-content: center;
+        	-moz-border-radius: 10px;
+        	-moz-box-shadow: 0 0 10px #aaa;
+        	-webkit-border-radius: 10px;
+        	-webkit-box-shadow: 0 0 10px #aaa;
+        }
+    </style>
+    <div id="profile_pop_new"> -------------Alert-------------<br>
+      Access Denied<br>
+      <input type="button" id="prof_hide_new" value="Ok" />
+    </div>
+    <div id="shadow_prof_pop_new" class="popup"></div>
+    <!------------------End----------------------------------> 
+    <!-------------------------------User reg Pop-UP code-------------------------------------->
+    <div id="user_reg_pop"> -----------Sign-Up form-----------<br>
+      <div class="err" id="reg_err"></div>
+      <br>
+      <form id="signup_popform" name="signup_popform" method="post">
+        <label style="color:#0088cc; font-size:16px;">User Name:</label>
+        <input type="text" id="user_name_reg" name="user_name_reg" onKeyUp="userchkhome(this.value);"  />
+        <span id="unamechk"></span>
+        <label style="color:#0088cc; font-size:16px;">Email-id:</label>
+        <input type="text" id="email_reg" name="email_reg" />
+        <span id="uemailchk"></span><!--onBlur="useremailchkhome(this.value);" -->
+        <label style="color:#0088cc; font-size:16px;">Password:</label>
+        <input type="password" id="password_reg" name="password_reg" onKeyUp="chkpasshome(this.value);" />
+        <br>
+        <span id="upasschk"></span> <br>
+        <a href="#" id="user_reg_hide1">Already a member? Log In Here.</a> <br/>
+        <!--<span>Please press Tab key to see Signup button</span>-->
+        <input type="submit" id="signup_pop" value="Signup" onClick="return validform()" />
+        <input type="button" id="user_reg_hide" value="Cancel" />
+      </form>
+    </div>
+    <div id="shadow_user_reg" class="popup"></div>
+    <!------------------End----------------------------------> 
+  </div>
+    <div class="nav_body_center">
+    <!--<div class="adv_img"> <a href="http://www.girlsgivefeedback.com/" target="_blank"><img src="images/GGF-banner.jpg"></a> </div>-->
+  </div>
+  </nav>
+</body>
+<div class="modal-scrollable" id="scroll" style="z-index:1060; display:none;">
+  <div id="responsive" class="modal hide fade" tabindex="-1" data-width="760" style="margin-left:-450px; margin-top:80px;">
+    <div class="modal-body sign_up_popup">
+      <div class="row-fluid">
+        <div class="left_side">
+          <h2 align="center" style="color:red;">Welcome to Creative Self-Development</h2>
+          <div align="center" style="margin-bottom:20px;">
+            <video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" width="766" height="315" poster="images/thumb.png" data-setup="{}" >
+              <source src="video/trailer.mp4" type="video/mp4">
+            </video>
+          </div>
+          <!--<h3 align="center">The fastest growing pickup website on the net</h3>-->
+          <h5>If you are already a member log in<a href="#" id="login_up">here</a></h5>
+          <div class="signup_form" id="signup_up_div" align="center">
+            <form id="signup_form1_up" name="signup_form1_up" method="post" >
+              <input type="text" placeholder="Create your username " id="uname_up" name="uname_up" onKeyUp="userchk_up(this.value);" />
+              <span id="unamechkerr_up"></span>
+              <input type="text" placeholder="Your email address" id="uemail_up" name="uemail_up" />
+              <span id="uemailchkerr_up"></span>
+              <!--            onBlur="useremailchk(this.value);"-->
+              <input type="password"  placeholder="Create your password  " id="upass_up" name="upass_up" onKeyUp="chkpass_up(this.value);"/>
+              <span id="upasschkerr_up"></span><br/>
+              <button id="joincreative_up" name="joincreative_up" onClick="return validsignup_up();">Join Creative Self-Development</button>
+              <br/>
+              <!--   <span>Please press Tab key to see the signup button</span>
+         <button onClick="code.php?mode=signup">join ranker</button>-->
+            </form>
+          </div>
+          <div class="login_form" id="login_up_div">
+            <div id="loginerr_up" style="color:#FF0000"></div>
+            <form id="signin_form_up" name="signin_form_up" method="post">
+              <input type="text" placeholder="your username " id="user_name_up" name="user_name_up" />
+              <input type="password"  placeholder="your password  " id="user_pass_up" name="user_pass_up"/>
+              <input type="checkbox" name="logged_up" id="logged_up" checked>
+              Keep me logged in
+              <button onClick="javascript:return validlogin_up();">Log In</button>
+            </form>
+            <h5><a id="signup_up" href="#">Create an account ></a></h5>
+          </div>
+          <p align="justify">Creative Self-Development is a brand new website that started on the 1st of January 2018 and has gained an enormous amount of attention in just the first few days. The goal was to make the best pickup website with features and ideas that make learning pickup extremely easy and fast.</p>
+          <h4 align="center">All pickup material, ideas and techniques. All in one place ranked from best to worst by the whole Creative Self-Development community.</h4>
+          <li>All the best verbal material, all the best openers, all the best ways to tease a girl, the best ways to arouse her, the best questions you can ask her, the best ways to get her number etc.</li>
+          <li>All the best ways to have fun in-field, all the best techniques to never run out of things to say, all the best ways to be comfortable when approaching etc.</li>
+          <li>All the best ideas for sex and relationships.</li>
+          <li>All the best information on nutrition, physical exercise, sleep etc.</li>
+          <li>All the best articles and the best pickup videos on YouTube.</li>
+          <li>All the best products, services and teachers.</li>
+          <li>All the best online and offline shops for attractive clothing.</li>
+          <li>All the best condom cases, ear plugs for the club, sex furniture etc.</li>
+          <p align="justify">Everything related to pickup and self-development. All in one website. Everything ranked so you can quickly and easily find the best stuff.</p>
+          <h4 align="center">A place where you can get inspired by ideas and material so you can better come up and improve your own.</h4>
+          <p align="justify">Get your material reviewed, rated, ranked, discussed and improved.
+            Watch your favorite material become better and better, more creative, more fun, more entertaining, to you and the girls you interact with.</p>
+          <h4 align="center">Find the best pickup products, services and instructors with our high-tech no fake reviews system.</h4>
+          <p align="justify">Our no fake reviews system where only the votes and reviews of members that are active count - no fake accounts and no multiple accounts. A system that detects suspicious behavior that is then manually investigated to guarantee a 100% real-reviews-only website.
+            The only way for companies and instructors to go up in the ranks is by making a better product or providing a better service.
+            Never again buy a bad product, buy only the best, which are very few. See the absolute truth about which products, services and instructors are good. All of them ranked and reviewed by the Creative Self-Development community so you don’t waste money and time searching, reading and watching bad products.</p>
+          <h4 align="center">For promoting your products, services and pickup material</h4>
+          <p align="justify">Promote yourselves, your website, products, services, videos, articles and material all for free and attract new customers.</p>
+          <h3 align="center" style="color:red">Why Creative Self-Development will be one of your favorite websites:</h3>
+          <li>The best place to learn pickup, the easiest and fastest without wasting time and money.</li>
+          <li>Everything related to pickup and self-development. All in one website. Everything ranked so you can quickly and easily find the best stuff.</li>
+          <li>Get your material and ideas reviewed and improve them to the highest degree possible.</li>
+          <li>All pickup products, services and instructors, ranked with our high-tech no fake reviews system.</li>
+          <h4 align="center">Access the site in less than a minute. Everything on Creative Self-Development is 100% free.
+            No spam. All emails are fully in your control inside.</h4>
+          <h5>If you are already a member log in<a href="#" id="login">here</a></h5>
+          <div class="signup_form" id="signup_div">
+            <form id="signup_form1" name="signup_form1" method="post" >
+              <input type="text" placeholder="Create your username " id="uname" name="uname" onKeyUp="userchk(this.value);" />
+              <span id="unamechkerr"></span>
+              <input type="text" placeholder="Your email address" id="uemail" name="uemail" />
+              <span id="uemailchkerr"></span>
+              <!--            onBlur="useremailchk(this.value);"-->
+              <input type="password"  placeholder="Create your password  " id="upass" name="upass" onKeyUp="chkpass(this.value);"/>
+              <span id="upasschkerr"></span><br/>
+              <button id="joincreative" name="joincreative" onClick="return validsignup();">Join Creative Self-Development</button>
+              <!--   <span>Please press Tab key to see the signup button</span>
+         <button onClick="code.php?mode=signup">join ranker</button>-->
+            </form>
+          </div>
+          <div class="login_form" id="login_div">
+            <div id="loginerr" style="color:#FF0000"></div>
+            <form id="signin_form" name="signin_form" method="post">
+              <input type="text" placeholder="your username " id="user_name" name="user_name" />
+              <input type="password"  placeholder="your password  " id="user_pass" name="user_pass"/>
+              <input type="checkbox" name="logged" id="logged" checked>
+              Keep me logged in
+              <button onClick="javascript:return validlogin();">Log In</button>
+            </form>
+            <h5><a id="signup" href="#">Create an account ></a></h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-backdrop fade in" id="scroll2" style="z-index: 1050; display:none;"></div>
+<div class="modal-scrollable" id="scrolled" style="z-index:1060; display:none;">
+  <div id="responsived" class="modal hide fade" tabindex="-1" data-width="760" style="margin-left:-450px; margin-top:80px;">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" >&times;</button>
+    <div class="modal-body sign_up_popup">
+      <div class="row-fluid">
+        <div class="left_side">
+          <p style="color:red; font-family:Calibri; font-size:36px" align="center">Practice your game with our web application</p>
+          <p style="font-family:Calibri; font-size:20px; color:#000000"><b>Choose the shit tests you want to work on inside the app, then choose the responses you want to learn for each shit test. Press start and you will hear a real girl randomly giving you the shit tests and you will say your responses.</b></p>
+          <p style="font-family:Calibri; font-size:20px; color:black" align="justify">You can set the app to randomly tell you to either respond with a memorized prepared response or to improvise a response so you can practice the ability of memorization and fast recall of your prepared material and the ability to improvise material.</p>
+          <p style="font-family:Calibri; font-size:20px; color:black" align="justify">You can set the app to associate with each shit test also the frames to have for each situation where a real person’s voice will be telling you the frame you want to associate with that situation. These frames will be installed in your subconscious mind that will get activated when you are in field interacting with girls.</p>
+          <p style="font-family:Calibri; font-size:20px; color:black" align="justify">You can choose also for the web app to be telling you anything you need to hear in each situation that will motivate you and lift your mood.</p>
+          <p style="font-family:Calibri; font-size:20px; color:black" align="justify">For practicing opening, choose the situations you would like to learn to open girls and then the app will randomly give you those situations and you have to use your associated opener with that situation or to improvise. And again the app is giving you with a real persons voice frames and motivation and whatever pumps your state.</p>
+          <p style="font-family:Calibri; font-size:20px; color:black" align="justify">You can set the app to randomly tell you to ask her a question and will show you the questions you have chosen to learn, then it will tell you how the girl responded so you can respond to that with a tease, a follow up question, a story, a transition etc. and the app will show you the material you chose to learn or it will tell you to improvise</p>
+          <p style="font-family:Calibri; font-size:20px; color:black" align="justify">It will tell you to go for an instant date, getting her contact information etc. and show you the material you chose to say and do for each thing</p>
+          <p style="font-family:Calibri; font-size:20px; color:black" align="justify">For night game you can add what you want to learn when an interruption happens, learn what to say and do to move her around etc.</p>
+          <p style="font-family:Calibri; font-size:20px; color:black" align="justify"><b>Practicing your game with the web app without the pressure of real interactions with girls will skyrocket your abilities and your confidence and increase the fun you have in-field and the sex you have with the girls you interact with.</b></p>
+          <ul style="list-style:disc; font-family:Calibri; font-size:20px; color:black; ">
+            <li style="line-height:130%">Train your mind to know what to say and what to do</li>
+            <li style="line-height:130%">Train your mind what to think when doing pickup</li>
+            <li style="line-height:130%">Train yourself to feel good</li>
+            <li style="line-height:130%">Become extremely fast in saying the best memorized or improvised material.</li>
+            <li style="line-height:130%">Have that extreme confidence of knowing extremely well what to say and do at each time.</li>
+            <li style="line-height:130%">Have topics, questions, responses and recalling them or improvising them with extreme speed and intelligence so you can continue the conversation and have fun and taking more interactions to sex</li>
+            <li style="line-height:130%">Be able to have fun while being in field and being extremely comfortable</li>
+            <li style="line-height:130%">Brainwash your mind with the frames for each situation to be in a happy mood while being in field all the time</li>
+          </ul>
+          <p style="font-family:Calibri; font-size:20px; color:black" align="justify">Combine 30 minutes minimum each day for practicing your game with the web app and 30 minutes minimum in-field and see the fun increase and the results sky rocket</p>
+                    <button class="buttons" onClick="location.href='index_rest_true.html'">Creative Self-Development Web App</button>
+                  </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-backdrop fade in" id="scrolled2" style="z-index: 1050; display:none;"></div>
+<div id="header2" class="in collapse">
+  <nav>
+    <!---------------------------Code for dynamic Tabs----------------------------------------->
+    <div id="navigation" class="wrapper">
+      <ul>
+                <li><a href="#tab-1">Supplements                    </a></li>
+                <li><a href="#tab-2">Nutrition                    <div class="points_top">
+            <div class="points_cat">Coming Soon</div>
+          </div>
+                    </a></li>
+                <li><a href="#tab-3">Teachings                    <div class="points_top">
+            <div class="points_cat">Coming Soon</div>
+          </div>
+                    </a></li>
+                <li><a href="#tab-4">Productivity                    <div class="points_top">
+            <div class="points_cat">Coming Soon</div>
+          </div>
+                    </a></li>
+                <li><a href="#tab-5">Relationships                    <div class="points_top">
+            <div class="points_cat">Coming Soon</div>
+          </div>
+                    </a></li>
+                <li><a href="#tab-6">Social                    <div class="points_top">
+            <div class="points_cat">Coming Soon</div>
+          </div>
+                    </a></li>
+                <li><a href="#tab-7">Teachers & Products                    <div class="points_top">
+            <div class="points_cat">Coming Soon</div>
+          </div>
+                    </a></li>
+                <li><a href="#tab-8">Physical Exercise                    <div class="points_top">
+            <div class="points_cat">Coming Soon</div>
+          </div>
+                    </a></li>
+              </ul>
+      <!----------------Creating Tabs contents dynamically---------------------------------->
+      <div class="tabscontent">
+                <div id="tab-1">
+          <div class="sub-category-box">
+                        <div class="sub-cat">
+                           <a href="sub-category_cat-id_80.html">
+                   <!--<a href="here2" onclick="event.preventDefault(); loadpage(80,,0); return false;">-->
+                  <span class="Sub-category">Depression</span>
+                            </a>
+                          </div>
+                        <div class="sub-cat">
+                           <a href="sub-category_cat-id_81.html">
+                   <!--<a href="here2" onclick="event.preventDefault(); loadpage(81,,0); return false;">-->
+                  <span class="Sub-category">Anxiety</span>
+                            </a>
+                          </div>
+                        <div class="sub-cat">
+                           <a href="sub-category_cat-id_82.html">
+                   <!--<a href="here2" onclick="event.preventDefault(); loadpage(82,,0); return false;">-->
+                  <span class="Sub-category">Fatigue</span>
+                            </a>
+                          </div>
+                        <div class="sub-cat">
+                           <a href="sub-category_cat-id_83.html">
+                   <!--<a href="here2" onclick="event.preventDefault(); loadpage(83,,0); return false;">-->
+                  <span class="Sub-category">Inflammation</span>
+                            </a>
+                          </div>
+                        <div class="sub-cat">
+                           <a href="sub-category_cat-id_84.html">
+                   <!--<a href="here2" onclick="event.preventDefault(); loadpage(84,,0); return false;">-->
+                  <span class="Sub-category">Deficiencies</span>
+                            </a>
+                          </div>
+                        <div class="sub-cat">
+                           <a href="sub-category_cat-id_85.html">
+                   <!--<a href="here2" onclick="event.preventDefault(); loadpage(85,,0); return false;">-->
+                  <span class="Sub-category">Sex</span>
+                            </a>
+                          </div>
+                        <div class="sub-cat">
+                           <a href="sub-category_cat-id_86.html">
+                   <!--<a href="here2" onclick="event.preventDefault(); loadpage(86,,0); return false;">-->
+                  <span class="Sub-category">Testosterone</span>
+                            </a>
+                          </div>
+                      </div>
+        </div>
+                <div id="tab-2">
+          <div class="sub-category-box">
+                        <div class="sub-cat">
+                           <a href="sub-category_cat-id_79.html">
+                   <!--<a href="here2" onclick="event.preventDefault(); loadpage(79,,0); return false;">-->
+                  <span class="Sub-category">Foods</span>
+                            </a>
+                          </div>
+                      </div>
+        </div>
+                <div id="tab-3">
+          <div class="sub-category-box">
+                      </div>
+        </div>
+                <div id="tab-4">
+          <div class="sub-category-box">
+                      </div>
+        </div>
+                <div id="tab-5">
+          <div class="sub-category-box">
+                      </div>
+        </div>
+                <div id="tab-6">
+          <div class="sub-category-box">
+                      </div>
+        </div>
+                <div id="tab-7">
+          <div class="sub-category-box">
+                      </div>
+        </div>
+                <div id="tab-8">
+          <div class="sub-category-box">
+                      </div>
+        </div>
+        <!-------------------End of Creating Tabs contents dynamically-------------------->
+      </div>
+       <div id="loader_page" class="abc"><img src="images/loader.svg"></div>
+    </div>
+  </nav>
+</div>
+<div class="md-modal md-effect-1 md-show" id="modal-2" style="display:none" >
+  <div class="md-content">
+    <h3>Restricted Access</h3>
+    <p>Dear ,  you need to collect more points to be able to access this page.</p>
+    <button class="md-close" >Close me!</button>
+    <!--<h3>Restricted Access</h3>
+				<div>
+					<p>Dear ,  you need to collect more points to be able to access this page.</p>
+                    <p>By adding items, commenting and voting you get more points</p>
+<p>
+Every time you add an item or comment, our panel of moderators suggest how many points you should get based on how much value the item or comment gives to the community and after all moderators have voted you get the average of the points suggested. It can take up to 48 hours for you to receive your points. And if you are regularly voting with honest voting you get points for that too based again on the panel of moderators.</p>
+					<button class="md-close" >Close me!</button>
+				</div>-->
+  </div>
+</div>
+<div class="md-overlay" id="modal-21" style="display:none;"></div>
+<div id="header_top"></div>
+</div>
+<style>
+.functions .demo {
+	margin-bottom: 10px;
+}
+.functions .item {
+	background-color: #FEFEFE;
+	border-radius: 4px;
+	display: inline-block;
+	margin-bottom: 5px;
+	padding: 5px 10px;
+}
+.functions .item a {
+	border: 1px solid #CCC;
+	margin-left: 10px;
+	padding: 5px;
+	text-decoration: none;
+}
+.functions .item input {
+	display: inline-block;
+	margin-left: 2px;
+	padding: 5px 6px;
+	width: 120px;
+}
+.functions .item label {
+	display: inline-block;
+	font-size: 1.1em;
+	font-weight: bold;
+}
+.hint {
+	text-align: center;
+	width: 160px
+}
+div.hint {
+	font-size: 1.4em;
+	height: 46px;
+	margin-top: 15px;
+	padding: 7px
+}
+.sub-category-title {
+}
+</style>
+<script src="js/jquery.min.js"></script>
+<script src="vendor/jquery.js"></script>
+<script src="lib/jquery.raty.js"></script>
+<script src="demo/javascripts/labs.js" type="text/javascript"></script>
+<script type="text/javascript">
+  $.fn.raty.defaults.path = 'lib/images';
+ $(function() {
+$('.field').raty({ 
+readOnly: true,
+ half  : true,
+             score: function() {
+                      return $(this).attr('data-score');
+                     }
+			//click: function(score) {
+			//alert(score);
+			//}
+		    //space : false
+});
+  });
+//  $(function() {
+//  $("a.activable").click(function(){
+//   $("a.activable.active").removeClass("active");
+//   $(this).addClass("active");
+//});
+//});
+ $(document).ready(function () {
+   if(window.location.href.indexOf("sort=high_month") > -1) {
+   document.getElementById("monthly").className="active";
+  }
+   else if(window.location.href.indexOf("sort=high_week") > -1) {
+   document.getElementById("weekly").className="active";
+  }
+   else if(window.location.href.indexOf("sort=high_today") > -1) {
+   document.getElementById("today").className="active";
+  }
+  else if(window.location.href.indexOf("sort=new") > -1) {
+   document.getElementById("new").className="active";
+  }
+    else if(window.location.href.indexOf("sort=high_rate") > -1) {
+   document.getElementById("all").className="active";
+  }
+});
+  var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+};
+   $(document).ready(function () {
+	   if(window.location.href.indexOf("val") > -1) {
+		  var tech = getUrlParameter('val');
+		 document.getElementById(tech).className="active";
+	   }
+		 else if(window.location.href.indexOf("sort=alltags") > -1) {
+		 document.getElementById("alltags").className="active";	 
+   //document.getElementById("monthly").className="active";
+  }
+   });
+  function chkiffirst(uname,catid)
+  {
+	  //alert(uname);
+	  var url;
+	url="code_mode_chkiffirst_uname.html"+uname+"&r="+Math.random();
+	//alert(url);
+	var obj;
+	try
+	{
+		obj=new XMLHttpRequest();
+	}
+	catch(e)
+	{
+		try
+		{
+		obj=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		catch(e)
+		{
+			alert("Your Browser does not support AJAX");
+		}
+	}
+	obj.open("POST",url,true);
+	obj.send(null);
+	obj.onreadystatechange=function()
+	{
+		if(obj.readyState==4)
+		{
+			var res= obj.responseText;
+			//alert(res);
+			if(res=="0")
+			{
+				addclasses();
+				return false;
+			}
+			else
+			{
+				window.location.href="add_new_item_cat-id.html"+catid;
+			}
+		}
+	}
+  }
+  function addclasses()
+{	
+document.getElementById("responsive_first").className="modal hide fade in modal-overflow";
+//document.getElementById("responsive").aria-hidden="false";
+document.getElementById("responsive_first").style.display="block";
+document.getElementById("responsive_first").style.width="910px";
+document.getElementById("scrollfirst").style.display="block";
+document.getElementById("scroll2_first").style.display="block";
+return false;
+}
+function chkvalues(uname,catid)
+{
+	var t1=document.getElementById("txt1").value;
+	var t2=document.getElementById("txt2").value;
+	var t3=document.getElementById("txt3").value;
+	var t4=document.getElementById("txt4").value;
+	var t5=document.getElementById("txt5").value;
+	var t6=document.getElementById("txt6").value;
+	var t7=document.getElementById("txt7").value;
+	var t8=document.getElementById("txt8").value;
+	var t9=document.getElementById("txt9").value;
+	var t1=t1.replace(/\s+/g, '');
+	var t2=t2.replace(/\s+/g, '');
+	var t3=t3.replace(/\s+/g, '');
+	var t4=t4.replace(/\s+/g, '');
+	var t5=t5.replace(/\s+/g, '');
+	var t6=t6.replace(/\s+/g, '');
+	var t7=t7.replace(/\s+/g, '');
+	var t8=t8.replace(/\s+/g, '');
+	var t9=t9.replace(/\s+/g, '');
+	if(t1.toLowerCase()!="positivity")
+	{
+		document.getElementById("chkerror").innerHTML="There seems to be some mistake in first textbox, please check";
+			return false;
+	}
+	else if(t2.toLowerCase()!="value")
+	{
+		document.getElementById("chkerror").innerHTML="There seems to be some mistake in second textbox, please check";
+			return false;
+	}
+	else if(t3.toLowerCase()!="search")
+	{
+		document.getElementById("chkerror").innerHTML="There seems to be some mistake in third textbox, please check";
+			return false;
+	}
+	else if(t4.toLowerCase()!="legal")
+	{
+		document.getElementById("chkerror").innerHTML="There seems to be some mistake in fourth textbox, please check";
+			return false;
+	}
+	else if(t5.toLowerCase()!="yes")
+	{
+		document.getElementById("chkerror").innerHTML="There seems to be some mistake in fifth textbox, please check";
+			return false;
+	}
+	else if(t6.toLowerCase()!="no")
+	{
+			document.getElementById("chkerror").innerHTML="There seems to be some mistake in sixth textbox, please check";
+			return false;
+	}
+	else if(t7.toLowerCase()!="no")
+	{
+			document.getElementById("chkerror").innerHTML="There seems to be some mistake in seventh textbox, please check";
+			return false;
+	}
+	else if(t8.toLowerCase()!="moderated")
+	{
+			document.getElementById("chkerror").innerHTML="There seems to be some mistake in eighth textbox, please check";
+			return false;
+	}
+	else if(t9.toLowerCase()!="yes")
+	{
+			document.getElementById("chkerror").innerHTML="There seems to be some mistake in ninth textbox, please check";
+			return false;
+	}
+	else
+	{
+				 var url;
+			url="code.php?mode=upduserstatus&uname="+uname+"&r="+Math.random();
+			//alert(url);
+			var obj;
+			try
+			{
+				obj=new XMLHttpRequest();
+			}
+			catch(e)
+			{
+				try
+				{
+				obj=new ActiveXObject("Microsoft.XMLHTTP");
+				}
+				catch(e)
+				{
+					alert("Your Browser does not support AJAX");
+				}
+			}
+			obj.open("POST",url,true);
+			obj.send(null);
+			obj.onreadystatechange=function()
+			{
+				if(obj.readyState==4)
+				{
+					var res= obj.responseText;
+					//alert(res);
+					//return false;
+					if(res==1)
+					{
+						window.location.href="add_new_item_cat-id.html"+catid;
+					}
+					else
+					{
+					}
+				}
+			}
+	}
+}
+function ratenow(id,catid)
+{
+	 var url;
+			url="code.php?mode=closeitemupd&itemid="+id+"&r="+Math.random();
+			//alert(url);
+			var obj;
+			try
+			{
+				obj=new XMLHttpRequest();
+			}
+			catch(e)
+			{
+				try
+				{
+				obj=new ActiveXObject("Microsoft.XMLHTTP");
+				}
+				catch(e)
+				{
+					alert("Your Browser does not support AJAX");
+				}
+			}
+			obj.open("POST",url,true);
+			obj.send(null);
+			obj.onreadystatechange=function()
+			{
+				if(obj.readyState==4)
+				{
+					var res= obj.responseText;
+					//alert(res);
+					//return false;
+					if(res==1)
+					{
+						window.location.href="item_rating_mode_drag_itemid.html"+id+"&cat-id="+catid;
+					}					
+				}
+			}
+}
+</script>
+<script src="js/jquery.tabbedcontent.min.js"></script>
+<script>
+	var tabs;
+        jQuery(function($) {
+			$('html, body').animate({scrollTop:0});
+            tabs = $('.tabscontent').tabbedContent({loop: true}).data('api');
+            // switch to tab...
+            $('a[href=#click-to-switch]').on('click', function(e) {
+                var tab = prompt('Tab to switch to (number or id)?');
+                if (!tabs.switchTab(tab)) {
+                    alert('That tab does not exist :\\');
+                }
+                e.preventDefault();
+            });
+            // Next and prev actions
+            $('.controls a').on('click', function(e) {
+                var action = $(this).attr('href').replace('#', '');
+                tabs[action]();
+                e.preventDefault();
+            });
+        });
+    </script>
+<body onLoad="setTimeout('addclass()', 0);">
+<div class="home_below_item">
+<div class="left_pic">
+  <div class="pic_box">
+            <div class="right_pic ">
+  <div class="pic_box">
+          </div>
+</div>
+  </div>
+  <div id="below_box"></div>
+</div>
+<section class="content">
+  <div> <!--<p class="tree"><a href="index_php.html">Home</a> - sub category</p>-->
+        <div class="category-box-type">
+      <div class="sub-type">
+        <h1 class="sub-category-title">Testosterone </h1>
+        <hr>
+                <p id="add-an-item"><a href="#" class="prof_pop">Press here to add an item </a></p>
+        <p id="add-an-item"><a href="#" class="prof_pop">See All My Ratings </a></p>
+        <p id="add-an-item"><a href="#" class="prof_pop">Rate your Later Items here</a></p>
+                <!--   <p id="add-an-item"><a href="#" class="prof_pop"></a></p>
+-->
+                        <!--<span class="type-name">-->
+        <p class="sort"><b>Type:</b> &nbsp;&nbsp;<a href="sub-category_sort_alltags_cat-id_86.html" id="alltags">All </a>
+                  </p>
+        <!--</span>--> 
+      </div>
+    </div>
+  </div>
+  <p class="sort">&nbsp;&nbsp;<b>Sort:</b>&nbsp;&nbsp; <a href="sub-category_sort_new_cat-id_86.html" class="activable" id="new">New</a>&nbsp;&nbsp; | &nbsp;&nbsp;Highest rated&nbsp;&nbsp; : &nbsp;&nbsp; <a href="sub-category_sort_high_today_cat-id_86.html" class="activable" id="today">Today</a> &nbsp;&nbsp; | &nbsp;&nbsp; <a href="sub-category_sort_high_week_cat-id_86.html" class="activable" id="weekly">This Week</a> &nbsp;&nbsp; | &nbsp;&nbsp; <a href="sub-category_sort_high_month_cat-id_86.html" class="activable" id="monthly">This Month</a> &nbsp;&nbsp; | &nbsp;&nbsp; <a href="sub-category_sort_high_rate_cat-id_86.html" class="activable" id="all">Of all time</a></p>
+  <hr>
+  <div class="item_list">
+    <ul>
+          </ul>
+  </div>
+</section>
+<div class="right_pic ">
+  <div class="pic_box">
+          </div>
+</div>
+</div>
+<!--<button class="demo btn btn-primary btn-large" data-toggle="modal" href="#responsive">Click for pop-up</button>
+--><!--Pop UP content-->
+<div class="modal-scrollable" id="scrollfirst" style="z-index:1060; display:none;">
+  <div id="responsive_first" class="modal hide fade" tabindex="-1" data-width="760" style="margin-left:-450px; margin-top:80px;">
+    <div class="modal-body sign_up_popup">
+      <div class="row-fluid">
+        <div class="left_side">
+          <h2 align="center" style="color:red;">This is your first post</h2>
+          <h3 align="center">You will see this only the first time you post </h3>
+          <p align="justify">
+          <h4>To test if you are a human and not a robot and to give you some motivation to read the rules, every time you see a question below answer it in the box. Your answers should always be one word only.</h4>
+          </p>
+          <form class="add_form" name="firstchk" id="firstchk" method="post">
+            <h4>Use positivity in your posts and comments. What should you use in your posts and comments? </h4>
+            <input type="text" name="txt1" id="txt1">
+            <h4>Give value in your posts and comments.  What should you give in your posts and comments? </h4>
+            <input type="text" name="txt2" id="txt2">
+            <h4>Search before posting something. Do not post duplicates. What should you do before posting something so you don’t post duplicates?</h4>
+            <input type="text" name="txt3" id="txt3">
+            <h4>Post and comment only about legal stuff. You should post and comment about stuff that is only? </h4>
+            <input type="text" name="txt4" id="txt4">
+            <p>
+            <h4>We want high quality members in our community so give value and be positive so you can be part of this great community.</h4>
+            </p>
+            <h4>Will you give value and be positive so you can be part of this great community? </h4>
+            <input type="text" name="txt5" id="txt5">
+            <p>
+            <h4>Breaking the rules can get you to lose access of the site for a period of time or get you permanently banned.</h4>
+            </p>
+            <h4> Will you break the rules? </h4>
+            <input type="text" name="txt6" id="txt6">
+            <p>
+            <h4>No begging for votes, all suspicious activities will be investigated. Will you beg for votes? </h4>
+            </p>
+            <input type="text" name="txt7" id="txt7">
+            <h4>All posts and comments are moderated.  All posts and comments are? </h4>
+            <input type="text" name="txt8" id="txt8">
+            <p>
+            <h4>All material that you post that you created is automatically copyrighted to your name.
+              If someone wants to use your material for non commercial purposes they have to credit you and if someone wants to use it commercially they have to get permission from you.</h4>
+            </p>
+            <p>
+            <h4>If someone wants to use rank results or collections in parts or complete lists from Creative Self-Development for non commercial purposes they have to credit creativeselfdevelopment.com and if they want to use them commercially they have to get permission from us. </h4>
+            </p>
+            <h4>Do you agree with these rules? </h4>
+            <input type="text" name="txt9" id="txt9" maxlength="3">
+            <br>
+            <span id="chkerror" style="color:red"></span> <a href="" class="buttons" onClick="return chkvalues('',86)">Submit</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-backdrop fade in" id="scroll2_first" style="z-index: 1050; display:none;"></div>
+<!--<script src="js/jquery.min.js"></script> 
+-->
+﻿<!--<footer>
+  <div class="footer_box">
+    <ul>
+      <li><a href="copyright.php">Copyright © 2018</a></li>
+      <li><a href="disclaimer.php">General Disclaimer</a></li>
+      <li><a href="medical_disclaimer.php">Medical Disclaimer</a></li>
+      <li><a href="privacy_policy.php">Privacy Policy</a></li>
+      <li><a href="Terms_conditions.php">Terms and Conditions</a></li>
+      <li><a href="contact.php">Contact Us</a></li>
+    </ul>
+  </div>
+</footer>-->
+<script>
+var vid = document.getElementById("example_video_1_html5_api");
+function addclass()
+{
+document.getElementById("responsive").className="modal hide fade in modal-overflow";
+//document.getElementById("responsive").aria-hidden="false";
+document.getElementById("responsive").style.display="block";
+document.getElementById("responsive").style.width="910px";
+document.getElementById("scroll").style.display="block";
+document.getElementById("scroll2").style.display="block";
+vid.autoplay = true;
+    vid.load();
+}
+</script>
+<!---------------Fix the heder of close and open menu---------------------------------------->
+<!---------------Fix left right images adds---------------------------------------->
+<script>
+ $(document).scroll(function(){
+        if($(this).scrollTop() >= $('.left_pic').offset().top - 120) {
+            $('.pic_box').addClass('fixit');
+		}
+		else{ $('.pic_box').removeClass('fixit')}
+    });
+</script>
+<script>
+ $(document).scroll(function(){
+        if($(this).scrollTop() >= $('.left_pic').offset().top - 220) {
+            $('.left_pic').addClass('fixit');
+		}
+		else{ $('.left_pic').removeClass('fixit')}
+    });
+</script>
+<script>
+ $(document).scroll(function(){
+        if($(this).scrollTop() >= $('.right_pic ').offset().top - 220) {
+            $('.right_pic ').addClass('fixit');
+		}
+		else{ $('.right_pic ').removeClass('fixit')}
+    });
+</script>
+<script>
+$(document).ready(function(){
+    $(".toggle_button").click(function(){
+        $(".top_block").toggleClass("button_clicked");
+    });
+});
+window.onscroll = function() {myFunction(), myFunction2()};
+var header = document.getElementById("header_top");
+var sticky = header_top.offsetTop;
+var header_2 = document.getElementById("header_logo");
+var sticky_header = header_logo.offsetTop;
+<!---------------Full header reached---------------------------------------->
+function myFunction() {
+  if (window.pageYOffset > sticky) {
+     $('.top_block ').addClass('reachded');
+	 $('.collapse ').delay(50000).removeClass('in');
+	  $('.toggle_button').addClass('collapsed');
+	 $('.top_block ').removeClass('button_clicked');
+	 $('.home_below_item ').addClass('top_reached');
+	 document.getElementsByTagName("nav")[0].removeAttribute("style");
+	 document.getElementById("header2").removeAttribute("style"); 
+  } else {
+    $('.top_block ').removeClass('reachded');
+	 $('.collapse ').addClass('in');
+	 $('.toggle_button').removeClass('collapsed');
+	 $('.home_below_item ').removeClass('top_reached');
+  }
+}
+<!---------------Logo Reached---------------------------------------->
+function myFunction2() {
+  if (window.pageYOffset > sticky_header) {
+     $('.top_block ').addClass('logo_reached');
+	} 
+else {
+   $('.top_block ').removeClass('logo_reached');
+  }
+}
+</script>
+</body>
+</html>
